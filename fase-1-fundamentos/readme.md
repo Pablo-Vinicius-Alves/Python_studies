@@ -73,3 +73,111 @@ print(not (10 > 5))
 ```
  
 ---
+
+## 3. Estruturas condicionais
+ 
+```python
+nota = 50
+ 
+if nota >= 90:
+    conceito = "A"
+elif nota >= 70:
+    conceito = "B"
+elif nota >= 50:
+    conceito = "C"
+else:
+    conceito = "D"
+ 
+print(f"Seu conceito é {conceito}")
+```
+ 
+Pontos que importam:
+- A indentação (espaços no início da linha) **não é estética, é sintaxe**. Python usa ela para saber o que está dentro do `if`. Erro de indentação quebra o programa.
+- `elif` só é avaliado se o `if` anterior for falso — a ordem das condições importa (por isso `>= 90` vem antes de `>= 70`, senão nunca seria alcançado).
+- Nem todo `if` precisa de `else`.
+**Exercício:** escreva um programa que recebe um número e imprime se ele é positivo, negativo ou zero. Depois, um segundo que recebe um número e diz se é par ou ímpar.
+
+```python
+numero = -4
+
+if numero > 0:
+    resposta = "Positivo +"
+elif numero < 0:
+    resposta = "Negativo -"
+else:
+    resposta = "Nulo 0"
+    
+print(resposta)
+
+testePar = 8
+
+if testePar % 2 == 0:
+    answer = "Par"
+else:
+    answer = "Impar"    
+    
+print(answer)
+```
+ 
+---
+
+## 4. Input e output
+ 
+```python
+nome = input("Qual é o seu nome? ")
+idade = int(input("Qual é a sua idade? "))  # input() sempre retorna string.
+ 
+print(f"Olá, {nome}! Você tem {idade} anos.")
+```
+ 
+`f-strings` (o `f` antes das aspas) são a forma moderna de formatar texto com variáveis dentro — evite concatenar com `+`, fica mais difícil de ler.
+ 
+**Erro comum:** esquecer de converter o `input()` para número antes de fazer conta com ele. Se você tentar `idade + 1` sem o `int()`, o Python vai tentar "somar" string com número e vai quebrar.
+ 
+---
+ 
+ ## 5. Loops: for e while
+ 
+**`for`** — use quando você sabe quantas vezes vai iterar:
+```python
+for i in range(5):   # 0, 1, 2, 3, 4
+    print(i)
+ 
+nome = "Ana"
+for letra in nome:
+    print(letra)     # imprime cada letra
+```
+ 
+**`while`** — use quando a repetição depende de uma condição que pode mudar, sem número fixo de repetições:
+```python
+senha = ""
+while senha != "1234":
+    senha = input("Digite a senha: ")
+ 
+print("Acesso liberado")
+```
+ 
+**Regra prática:** se você já sabe de antemão quantas vezes vai repetir (ou tem uma lista/sequência para percorrer), use `for`. Se depende de uma condição que só se resolve durante a execução, use `while`. Essa é a dúvida mais comum de quem está começando — e a resposta é sempre essa lógica, não decoreba.
+ 
+---
+
+## 6. Controle de fluxo em loops
+ 
+```python
+# break: interrompe o loop imediatamente
+while True:
+    comando = input("Digite 'sair' para encerrar: ")
+    if comando == "sair":
+        break
+    print(f"Você digitou: {comando}")
+ 
+# continue: pula para a próxima iteração, sem executar o resto do bloco
+for numero in range(10):
+    if numero % 2 != 0:
+        continue        # pula números ímpares
+    print(numero)       
+```
+ 
+`while True` combinado com `break` é o padrão usado para criar menus que rodam até o usuário decidir sair.
+ 
+---

@@ -1,6 +1,6 @@
 # Cronograma de Estudos — Python do Zero ao Avançado (foco em Ciência de Dados)
 
-## Este repostirório tem como objetivo mostrar minha evolução programando em Python. 
+## Este repositório tem como objetivo mostrar minha evolução programando em Python. 
  
 **Regra geral:** nenhuma fase deve ser considerada concluída sem o projeto prático correspondente entregue. 
 

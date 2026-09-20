@@ -53,3 +53,20 @@ print(mochila.values())
 
 for chave, valor in mochila.items():
     print(chave, ":", valor)
+    
+# Sets
+
+info = {1,1,1,3,2,3,4,2,4,3,2}
+print(info)
+
+listaTotal = [1,1,3,2,3,4,2,4,3,]
+listaUnicas = list(set(listaTotal))
+
+print(listaUnicas)
+
+a = {1, 2, 3}
+b = {2, 3, 4}
+
+print(a & b)
+print(a | b)
+print(a - b)

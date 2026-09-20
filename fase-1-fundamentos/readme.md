@@ -298,3 +298,26 @@ print(pessoa.values())    # todos os valores
 **Diferença entre `pessoa["chave"]` e `pessoa.get("chave")`:** o primeiro gera erro (`KeyError`) se a chave não existir; o segundo retorna `None` (ou o valor padrão que você definir). Use `.get()` sempre que não tiver certeza se a chave existe.
  
 ---
+
+## 4. Sets
+ 
+Coleção **não ordenada** de itens **únicos** — útil para eliminar duplicados ou verificar pertencimento rapidamente:
+ 
+```python
+numeros = {1, 2, 2, 3, 3, 3}
+print(numeros)              # {1, 2, 3} — duplicados somem sozinhos
+ 
+lista_com_duplicados = [1, 2, 2, 3, 3, 3, 4]
+sem_duplicados = list(set(lista_com_duplicados))
+print(sem_duplicados)       # [1, 2, 3, 4]
+ 
+a = {1, 2, 3}
+b = {2, 3, 4}
+print(a & b)    # interseção: {2, 3}
+print(a | b)    # união: {1, 2, 3, 4}
+print(a - b)    # diferença: {1}
+```
+ 
+Sets não têm ordem garantida e não permitem acessar por índice (`numeros[0]` não funciona).
+ 
+---

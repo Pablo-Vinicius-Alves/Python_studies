@@ -321,3 +321,64 @@ print(a - b)    # diferença: {1}
 Sets não têm ordem garantida e não permitem acessar por índice (`numeros[0]` não funciona).
  
 ---
+
+## 5. Compreensão de listas e dicionários
+ 
+Forma compacta de criar uma lista/dicionário a partir de outra, aplicando uma operação ou filtro:
+ 
+```python
+# forma tradicional
+quadrados = []
+for n in range(10):
+    quadrados.append(n ** 2)
+ 
+# com list comprehension — mesma coisa, uma linha
+quadrados = [n ** 2 for n in range(10)]
+ 
+# com filtro (só os pares)
+pares = [n for n in range(10) if n % 2 == 0]
+ 
+# dict comprehension
+quadrados_dict = {n: n ** 2 for n in range(5)}
+print(quadrados_dict)   # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+```
+ 
+Não force o uso disso — se a lógica for complexa, um `for` tradicional é mais legível. Compreensão é para casos simples e diretos.
+ 
+---
+
+## 6. Manipulação de strings
+ 
+```python
+texto = "  Python é ótimo  "
+ 
+print(texto.strip())          # remove espaços das pontas
+print(texto.lower())          # tudo minúsculo
+print(texto.upper())          # tudo maiúsculo
+print(texto.replace("ótimo", "poderoso"))
+print(texto.split())          # divide em lista, por espaço: ['Python', 'é', 'ótimo']
+ 
+frase = "python,java,javascript"
+linguagens = frase.split(",")  # ['python', 'java', 'javascript']
+ 
+separador = "-"
+print(separador.join(linguagens))   # 'python-java-javascript'
+ 
+print(texto.strip().startswith("Python"))  # False, porque tem espaço — por isso o strip() antes
+print("ótimo" in texto)        # True — verifica se a substring existe
+```
+ 
+`.split()` e `.join()` são o par mais usado: um quebra texto em lista, o outro junta lista em texto. Vai aparecer o tempo todo quando você trabalhar com arquivos CSV mais pra frente.
+ 
+---
+ 
+## Projeto da semana:
+ 
+Construa um programa de linha de comando que:
+ 
+1. Guarda contatos em uma lista de dicionários, cada um com `nome`, `telefone` e `email`
+2. Tem um menu com opções: adicionar contato, listar todos, buscar por nome, remover por nome, sair
+3. Roda em loop até o usuário escolher sair (mesma lógica da calculadora)
+4. Na busca, trata o caso do nome não ser encontrado
+5. Ao listar, mostra os contatos de forma legível (não a lista/dicionário cru)
+Isso te obriga a combinar listas, dicionários, loops, condicionais e manipulação de string (para a busca, considere usar `.lower()` nos dois lados da comparação, senão "Ana" e "ana" seriam tratados como diferentes).

@@ -220,3 +220,81 @@ while True:
 ```
 
 ---
+
+# Estruturas de Dados Nativas
+ 
+## 1. Listas
+ 
+Coleção ordenada e **mutável** (você pode alterar depois de criada).
+ 
+```python
+frutas = ["maçã", "banana", "uva"]
+ 
+frutas.append("laranja")       # adiciona no final
+frutas.insert(0, "morango")    # insere em posição específica
+frutas.remove("banana")        # remove pelo valor
+frutas.pop()                    # remove e retorna o último item
+frutas.pop(0)                    # remove e retorna o item no índice 0
+ 
+print(frutas[0])                # acessa pelo índice (começa em 0)
+print(frutas[-1])               # índice negativo = a partir do final
+print(frutas[1:3])              # slicing: itens do índice 1 até o 2 (exclui o 3)
+print(len(frutas))              # tamanho da lista
+print("uva" in frutas)          # True/False — verifica se existe
+ 
+frutas.sort()                   # ordena a lista (altera a original)
+frutas.reverse()                # inverte a ordem
+```
+ 
+**Erro comum:** tentar acessar um índice que não existe (`frutas[10]` numa lista de 3 itens) gera `IndexError`. Sempre confira o tamanho antes se não tiver certeza.
+ 
+---
+
+## 2. Tuplas
+ 
+Igual à lista, mas **imutável** — depois de criada, não muda. Use quando os dados não devem ser alterados (coordenadas, dias da semana, etc.):
+ 
+```python
+coordenada = (10, 20)
+print(coordenada[0])    # 10
+ 
+# isso gera erro:
+# coordenada[0] = 5     # TypeError
+ 
+# desempacotamento — muito usado
+x, y = coordenada
+print(x, y)              # 10 20
+```
+ 
+Por que usar tupla em vez de lista? Performance um pouco melhor e, principalmente, **intenção**: sinaliza no código que aquele dado não deve mudar.
+ 
+---
+
+## 3. Dicionários
+ 
+Coleção de pares chave-valor. Pense em uma ficha de cadastro:
+ 
+```python
+pessoa = {
+    "nome": "Ana",
+    "idade": 28,
+    "cidade": "São Paulo"
+}
+ 
+print(pessoa["nome"])           # acessa pelo valor da chave
+pessoa["idade"] = 29             # altera um valor
+pessoa["profissao"] = "Analista" # adiciona uma nova chave
+ 
+print(pessoa.get("nome"))                    # forma segura de acessar
+print(pessoa.get("salario", "não informado")) # retorna um padrão se a chave não existir
+ 
+for chave, valor in pessoa.items():
+    print(chave, ":", valor)
+ 
+print(pessoa.keys())      # todas as chaves
+print(pessoa.values())    # todos os valores
+```
+ 
+**Diferença entre `pessoa["chave"]` e `pessoa.get("chave")`:** o primeiro gera erro (`KeyError`) se a chave não existir; o segundo retorna `None` (ou o valor padrão que você definir). Use `.get()` sempre que não tiver certeza se a chave existe.
+ 
+---

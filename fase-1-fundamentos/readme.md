@@ -371,6 +371,70 @@ print("ótimo" in texto)        # True — verifica se a substring existe
 `.split()` e `.join()` são o par mais usado: um quebra texto em lista, o outro junta lista em texto. Vai aparecer o tempo todo quando você trabalhar com arquivos CSV mais pra frente.
  
 ---
+
+## 7. Funções
+ 
+Bloco de código reutilizável, que você define uma vez e chama quantas vezes precisar.
+ 
+```python
+def somar(a, b):
+    resultado = a + b
+    return resultado
+ 
+print(somar(3, 4))     # 7
+```
+ 
+**Parâmetros com valor padrão** — usados quando o argumento é opcional:
+ 
+```python
+def saudacao(nome, saudacao="Olá"):
+    return f"{saudacao}, {nome}!"
+ 
+print(saudacao("Ana"))              # Olá, Ana!
+print(saudacao("Ana", "Bom dia"))   # Bom dia, Ana!
+```
+ 
+**`*args`** — recebe uma quantidade indefinida de argumentos posicionais, como uma tupla:
+ 
+```python
+def somar_varios(*numeros):
+    return sum(numeros)
+ 
+print(somar_varios(1, 2, 3, 4))   # 10
+```
+ 
+**`**kwargs`** — recebe uma quantidade indefinida de argumentos nomeados, como um dicionário:
+ 
+```python
+def cadastrar(**dados):
+    for chave, valor in dados.items():
+        print(f"{chave}: {valor}")
+ 
+cadastrar(nome="Ana", idade=28, cidade="São Paulo")
+```
+ 
+**Escopo de variáveis** — variável criada dentro de uma função só existe dentro dela:
+ 
+```python
+def teste():
+    x = 10
+    print(x)
+ 
+teste()
+print(x)   # erro: NameError, x não existe fora da função
+```
+ 
+Isso evita que funções diferentes "vazem" variáveis umas nas outras sem querer. Se precisar que uma função altere uma variável externa, ela deve **retornar** o valor e você reatribui, em vez de tentar alterar diretamente de dentro (existe a palavra `global` para isso, mas evite usá-la — é fonte comum de bugs difíceis de rastrear).
+ 
+**Erro comum:** esquecer o `return` e esperar que a função "devolva" algo sozinha. Sem `return`, a função sempre retorna `None`:
+ 
+```python
+def somar_errado(a, b):
+    a + b        # calcula mas não retorna
+ 
+resultado = somar_errado(3, 4)
+print(resultado)   # None
+```
  
 ## Projeto da semana:
  

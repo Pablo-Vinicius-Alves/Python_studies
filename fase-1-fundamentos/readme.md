@@ -435,8 +435,12 @@ def somar_errado(a, b):
 resultado = somar_errado(3, 4)
 print(resultado)   # None
 ```
+
+**Exercício:** reescreva a calculadora da semana 2 usando uma função para cada operação (`somar(a, b)`, `subtrair(a, b)`, etc.), em vez de colocar a conta direto no `print`. Isso é o passo natural antes da agenda de contatos, porque o projeto abaixo pede pelo menos uma função para cada ação do menu.
  
-## Projeto da semana:
+---
+ 
+## Projeto da semana: Agenda de contatos
  
 Construa um programa de linha de comando que:
  
@@ -445,4 +449,5 @@ Construa um programa de linha de comando que:
 3. Roda em loop até o usuário escolher sair (mesma lógica da calculadora)
 4. Na busca, trata o caso do nome não ser encontrado
 5. Ao listar, mostra os contatos de forma legível (não a lista/dicionário cru)
-Isso te obriga a combinar listas, dicionários, loops, condicionais e manipulação de string (para a busca, considere usar `.lower()` nos dois lados da comparação, senão "Ana" e "ana" seriam tratados como diferentes).
+6. Cada ação do menu (adicionar, listar, buscar, remover) deve ser uma função separada, chamada de dentro do loop principal
+Isso te obriga a combinar listas, dicionários, loops, condicionais e manipulação de string (para a busca, considere usar `.lower()` nos dois lados da comparação, senão "Ana" e "ana" seriam tratados como diferentes). Monte sozinho, trave onde precisar travar, e me manda o código quando tiver algo rodando.
